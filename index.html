@@ -8,13 +8,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <title>Gifs</title>
 </head>
 
 <body>
-
-
-
+    <header></header>
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h1 class="text-center">Search Gifs</h1>
+                <form onsubmit="app.gifsController.searchAsync(event)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="query" placeholder="Search...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-8">
+                <!-- template -->
+            </div>
+        </div>
+    </main>
+    <footer></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
         integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
