@@ -10,11 +10,11 @@ let _giphyApi = axios.create({
 })
 class GifsService {
   async searchAsync(query) {
-    let res = await _giphyApi.get("search?api_key=9Se48L43XQqf3fZEUQfKPN5RKdGqrRLY&rating=pg&limit=10&q=" + query)
+    let res = await _giphyApi.get("search?api_key=9Se48L43XQqf3fZEUQfKPN5RKdGqrRLY&rating=pg&limit=12&q=" + query)
     console.log("res ", res);
-
     let results = res.data.data.map(g => new Gif(g))
     store.commit("gifs", results)
+    debugger
   }
 }
 

@@ -3,8 +3,11 @@ import store from "../store.js";
 
 //Private
 function _drawGifs() {
+  let template = ''
   let gifs = store.State.gifs;
-  console.log(gifs)
+  gifs.forEach(g => template += g.Template)
+  debugger
+  document.getElementById("gifs").innerHTML = template
 }
 
 //Public
@@ -17,7 +20,6 @@ export default class GifsController {
     event.preventDefault()
     try {
       await GifsService.searchAsync(event.target.query.value)
-      debugger
     } catch (err) {
       console.log(err);
     }
