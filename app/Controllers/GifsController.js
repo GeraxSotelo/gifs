@@ -17,6 +17,7 @@ export default class GifsController {
     event.preventDefault()
     try {
       await GifsService.searchAsync(event.target.query.value)
+      debugger
     } catch (err) {
       console.log(err);
     }
