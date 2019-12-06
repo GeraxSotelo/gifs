@@ -7,15 +7,22 @@ export default class Gif {
     }
 
     get Template() {
-        return `
-            <div class="col-6 col-sm-4 col-md-3">
+        let template =
+            `<div class="col-6 col-sm-4 col-md-3">
                 <video autoplay>
                   <source src="${this.url}">
-                </video>
-                <button class="btn btn-success btn-block"
-                  onclick="app.gifsController.addToCollectionAsync('${this.id}')">Add to Collection</button>
-            </div>
-        `
+                </video>`
+        if (this.user) {
+            template += `<button class="btn btn-success btn-block"
+                    onclick="app.gifsController.deleteGifAsync('${this.id}')">Delete from Collection</button>`
+        } else {
+            template += `<button class="btn btn-success btn-block"
+                    onclick="app.gifsController.addToCollectionAsync('${this.id}')">Add to Collection</button>`
+        }
+
+        template += `</div > `
+
+        return template
     }
 
 }
