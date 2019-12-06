@@ -21,7 +21,7 @@ export default class GifsController {
   constructor() {
     store.subscribe("gifs", _drawGifs);
     store.subscribe("myGifs", _drawMyGifs);
-    // this.getMyGifsAsync()
+    this.getMyGifsAsync()
   }
 
   async searchAsync() {

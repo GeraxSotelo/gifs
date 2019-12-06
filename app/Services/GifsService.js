@@ -8,10 +8,14 @@ let _sandbox = axios.create({
 let _giphyApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs"
 })
+
+let key = "9Se48L43XQqf3fZEUQfKPN5RKdGqrRLY"
 class GifsService {
 
   async searchAsync(query) {
-    let res = await _giphyApi.get("search?api_key=9Se48L43XQqf3fZEUQfKPN5RKdGqrRLY&rating=pg&limit=12&q=" + query)
+    let res = await _giphyApi.get(`search?api_key=${key}&rating=pg&limit=12&q=` + query)
+    console.log("search res", res);
+    res.data.data.map(g => g.url = g.images.original.mp4) //replace values from 'url' properties with values of 'mp4' properties 
     let results = res.data.data.map(g => new Gif(g))
     store.commit("gifs", results)
   }
